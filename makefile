@@ -13,6 +13,8 @@ LIB     := genann # the cool NeuralNetwork C library
 CFLAGS  := -Wextra -Wall -Wpedantic -Werror
 LDFLAGS := -l$(LIB) -L$(LIB_DIR) -I$(LIB_DIR)
 
+all: clean build run
+
 clean:
 	@rm -f $(BIN)/*
 	@rm -f $(OBJ)/*
@@ -23,4 +25,4 @@ build:
 run:
 	@./$(BIN)/main
 
-.PHONY: build clean
+.PHONY: build clean run
