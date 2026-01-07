@@ -10,8 +10,8 @@ LIB_DIR := lib # the cool NeuralNetwork C library directory
 LIB     := genann # the cool NeuralNetwork C library
 
 # compiler flags
-CFLAGS  := -Wextra -Wall -Wpedantic -Werror
-LDFLAGS := -l$(LIB) -L$(LIB_DIR) -I$(LIB_DIR)
+CFLAGS  := -g -Wextra -Wall -Wpedantic -Werror
+LDFLAGS := -l$(LIB) -lm -L$(LIB_DIR) -I$(LIB_DIR)
 
 all: clean build run
 

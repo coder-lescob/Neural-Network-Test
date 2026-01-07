@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <time.h>
 #include <string.h>
 #include <math.h>
-#include "genann.h"
+#include <genann.h>
 
 /*
 * Taken from example 4
@@ -21,7 +22,7 @@ const char *class_names[] = {"Iris-setosa", "Iris-versicolor", "Iris-virginica"}
 
 void load_data() {
     /* Load the iris data-set. */
-    FILE *in = fopen("example/iris.data", "r");
+    FILE *in = fopen(iris_data, "r");
     if (!in) {
         printf("Could not open file: %s\n", iris_data);
         exit(1);
@@ -67,14 +68,14 @@ void load_data() {
             exit(1);
         }
 
-        /* printf("Data point %d is %f %f %f %f  ->   %f %f %f\n", i, p[0], p[1], p[2], p[3], c[0], c[1], c[2]); */
+        printf("Data point %d is %f %f %f %f  ->   %f %f %f\n", i, p[0], p[1], p[2], p[3], c[0], c[1], c[2]);
     }
 
     fclose(in);
 }
 
 
-int main(int argc, char *argv[])
+int main(void)
 {
     printf("GENANN example 4.\n");
     printf("Train an ANN on the IRIS dataset using backpropagation.\n");
